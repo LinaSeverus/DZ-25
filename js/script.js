@@ -24,10 +24,14 @@ function counter(initialNum = 0) {
         },
         getStatistic() {
             return statistic;
+        },
+        zeroing() {
+            return initialNum = 0
         }
     }
     return funcs;
 }
+
 
 let generalCounter = counter();
 
@@ -37,3 +41,6 @@ generalCounter.increase(100);
 console.log(generalCounter.get());
 
 console.log(generalCounter.getStatistic());
+generalCounter.zeroing();
+console.log(generalCounter.get());
+
