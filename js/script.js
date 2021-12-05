@@ -2,13 +2,14 @@
 
 function counter(initialNum = 0) {
 
-    let statistic = {
+    const statistic = {
         increase: 0,
         decrease: 0,
-        get: 0
+        get: 0,
+        getStatistic: 0
     }
 
-    const funcs = {
+    return {
 
         increase(num2) {
             statistic.increase++;
@@ -23,17 +24,23 @@ function counter(initialNum = 0) {
             return initialNum;
         },
         getStatistic() {
+            statistic.getStatistic++;
             return statistic;
         },
         zeroing() {
-            return initialNum = 0
+            initialNum = 0;
+            statistic.increase = 0;
+            statistic.decrease = 0;
+            statistic.get = 0;
+            statistic.getStatistic = 0;
+
         }
     }
-    return funcs;
+
 }
 
 
-let generalCounter = counter();
+const generalCounter = counter();
 
 generalCounter.decrease(10);
 generalCounter.increase(40);
@@ -41,6 +48,10 @@ generalCounter.increase(100);
 console.log(generalCounter.get());
 
 console.log(generalCounter.getStatistic());
+
 generalCounter.zeroing();
+
 console.log(generalCounter.get());
+console.log(generalCounter.getStatistic());
+
 
